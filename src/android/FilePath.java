@@ -35,8 +35,6 @@ import java.io.OutputStream;
 import android.content.pm.ApplicationInfo;
 
 
-import org.apache.commons.io.IOUtils;
-
 public class FilePath extends CordovaPlugin {
 
     private static final String TAG = "[FilePath plugin]: ";
@@ -176,7 +174,6 @@ public class FilePath extends CordovaPlugin {
             InputStream inputStream = context.getContentResolver().openInputStream(srcUri);
             if (inputStream == null) return;
             OutputStream outputStream = new FileOutputStream(dstFile);
-            IOUtils.copy(inputStream, outputStream);
             inputStream.close();
             outputStream.close();
         } catch (IOException e) {
